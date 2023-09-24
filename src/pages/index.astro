@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Innovation in your hands.';
+const description = 'Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco';
+const img = 'https://picsum.photos/1200/900/?image=816';
+const action = '#';
+
+// Sections
+import S_About from '../sections/S_About.astro';
+import S_Simplify from '../sections/S_Simplify.astro';
+import S_Testimonials from '../sections/S_Testimonials.astro';
+import S_Analytics from '../sections/S_Analytics.astro';
+import S_Logos from '../sections/S_Logos.astro';
+---
+
+<Layout
+	title={title}
+	description={description}
+	img={img}
+	action={action}
+>
+
+	<S_About />
+	<S_Simplify />
+	<S_Testimonials />
+	<S_Analytics />
+	<S_Logos />
+
+</Layout>

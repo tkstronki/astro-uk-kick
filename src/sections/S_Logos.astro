@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+
+// images
+import imgLogo_1 from '../images/logos/logo-1.svg';
+import imgLogo_2 from '../images/logos/logo-2.svg';
+import imgLogo_3 from '../images/logos/logo-3.svg';
+import imgLogo_4 from '../images/logos/logo-4.svg';
+import imgLogo_5 from '../images/logos/logo-5.svg';
+import imgLogo_6 from '../images/logos/logo-6.svg';
+import imgLogo_7 from '../images/logos/logo-7.svg';
+import imgLogo_8 from '../images/logos/logo-8.svg';
+---
+
+    <!-- LOGOS -->
+	<div class="uk-section uk-section-small uk-section-muted">
+		<div class="uk-container uk-container-small">
+			<div class="uk-grid uk-child-width-1-4 uk-child-width-expand@m logos-grid" data-uk-grid data-uk-scrollspy="cls: uk-animation-scale-down; target: > div > img; delay: 100">
+				<div>
+					<Image src={imgLogo_1} alt='logo-1'/>
+				</div>
+				<div>
+					<Image src={imgLogo_2} alt='logo-2'/>
+				</div>
+				<div>
+					<Image src={imgLogo_3} alt='logo-3'/>
+				</div>
+				<div>
+					<Image src={imgLogo_4} alt='logo-4'/>
+				</div>
+				<div>
+					<Image src={imgLogo_5} alt='logo-5'/>
+				</div>
+				<div>
+					<Image src={imgLogo_6} alt='logo-6'/>
+				</div>
+				<div>
+					<Image src={imgLogo_7} alt='logo-7'/>
+				</div>
+				<div>
+					<Image src={imgLogo_8} alt='logo-8'/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /LOGOS -->

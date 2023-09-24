@@ -1,0 +1,92 @@
+---
+interface Props {
+    logo: ImageMetadata;
+    siteName: string;
+    menuLinks: object;
+    socialMediaLinks: object;
+	authorName: string;
+	authorLink: string;
+	astroThemeURL: string;
+
+
+}
+const { logo, siteName, menuLinks, socialMediaLinks, authorName, authorLink, astroThemeURL } = Astro.props;
+
+const date = new Date().getFullYear();
+
+
+import { Image } from 'astro:assets';
+---
+
+<!-- FOOTER -->
+<footer class="uk-section uk-section-secondary uk-padding-remove-bottom">
+	<div class="uk-container">
+		<div class="uk-grid uk-grid-large" data-uk-grid>
+			<div class="uk-width-1-2@m">
+				<h5>{siteName}</h5>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud cillum dolore eu fugiat nulla contact to: <a href="#" title="">info@company.com</a></p>
+				<ul class="uk-iconnav">
+					{Object.entries(socialMediaLinks).map(([key, value]) => (
+						<li><a href={value} class="uk-icon-button" data-uk-icon={key}></a></li>
+					))}
+				</ul>
+			</div>
+			<div class="uk-width-1-6@m">
+				<h5>PRODUCTS</h5>
+				<ul class="uk-list">
+					<li>Big Data</li>
+					<li>Marketing</li>
+					<li>Analytics</li>
+					<li>AI Lab</li>
+				</ul>
+			</div>
+			<div class="uk-width-1-6@m">
+				<h5>OUR COMPANY</h5>
+				<ul class="uk-list">
+					<li>Team</li>
+					<li>Work</li>
+					<li>Culture</li>
+					<li>Contact Us</li>
+				</ul>
+			</div>
+			<div class="uk-width-1-6@m">
+				<h5>OUR OFFICES</h5>
+				<ul class="uk-list">
+					<li>London</li>
+					<li>Chicago</li>
+					<li>Dubai</li>
+					<li>Brussels</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="uk-text-center uk-padding uk-padding-remove-horizontal">
+		<span class="uk-text-small uk-text-muted">© {date} Marketing Layout -
+			<a href={authorLink}>Created by {authorName}</a>&nbsp;
+			<a href="https://github.com/zzseba78/Kick-Off">Inspired by KickOff</a>&nbsp;
+			|Built with
+			<a href="http://getuikit.com" title="Visit UIkit 3 site" target="_blank" data-uk-tooltip>
+				<Image src={logo} alt={siteName}/>
+			</a> | <a href={astroThemeURL}>Get Astro.js Theme</a>
+		</span>
+	</div>
+</footer>
+<!-- /FOOTER -->
+<!-- OFFCANVAS -->
+<div id="offcanvas-nav" data-uk-offcanvas="flip: true; overlay: false">
+	<div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+		<button class="uk-offcanvas-close uk-close uk-icon" type="button" data-uk-close></button>
+		<ul class="uk-nav uk-nav-default uk-text-uppercase">
+			<!-- <li class="uk-active"><a href="#">Active</a></li> -->
+			{Object.entries(menuLinks).map(([key, value]) => (
+				<li><a  href={value}>{key}</a></li>
+			))}
+
+		</ul>
+		<!-- <h3>Title</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
+	</div>
+</div>
+<!-- /OFFCANVAS -->

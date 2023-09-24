@@ -1,0 +1,100 @@
+---
+import siteFavicon from '../images/favicon.ico';
+import siteLogo from '../images/logo.svg';
+
+import Header from '../parts/Header.astro';
+import Footer from '../parts/Footer.astro';
+
+// Astro will bundle and optimize this CSS for you automatically
+// This also works for preprocessor files like .scss, .styl, etc.
+import '../styles/marketing.css';
+
+// Using environment variables file ( https://docs.astro.build/en/guides/environment-variables/ )
+// const publicURL = import.meta.env.PUBLIC_URL;
+
+// basic props from /pages/{pagename.astro}
+interface Props {
+	title: string;
+	description: string;
+	img: string;
+	action: string;
+}
+const { title, description, img, action } = Astro.props;
+
+// Basic settings from .env file
+const themeName = 'UK-Kick';
+const authorName = 'templatek.pl';
+const authorLink = 'https://templatek.pl/';
+const astroThemeURL = 'https://tkstronki.github.io/astro-uk-kick/';
+
+// menu links
+const menuLinks = {
+	'home': '/',
+	'portfolio': '/portfolio',
+	'price': '/price',
+};
+
+// social media
+const socialMediaLinks = {
+	'twitter': 'https://twitter.com/',
+	'facebook': 'https://www.facebook.com/',
+	'instagram': 'https://www.instagram.com/',
+	'youtube': 'https://www.youtube.com/',
+	'tiktok': 'https://www.tiktok.com/',
+};
+const siteName = themeName;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href={siteFavicon} />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>{title}</title>
+		<!-- CSS FILES -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
+		<style is:global>
+			.lead {
+				font-size: 1.175em;
+				font-weight: 300;
+			}
+			.uk-logo img {
+				width: 35px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<Header
+			title={title}
+			description={description}
+			img={img}
+			action={action}
+			logo={siteLogo}
+			siteName={siteName}
+			menuLinks={menuLinks}
+		/>
+
+		<main id="main">
+			<slot />
+		</main>
+
+		<Footer
+			authorName={authorName}
+			authorLink={authorLink}
+			astroThemeURL={astroThemeURL}
+			logo={siteLogo}
+			siteName={siteName}
+			menuLinks={menuLinks}
+			socialMediaLinks={socialMediaLinks}
+		/>
+
+		<!-- JS FILES -->
+		<script is:inline src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+		<script is:inline src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+	</body>
+</html>

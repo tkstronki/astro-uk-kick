@@ -1,0 +1,77 @@
+---
+interface Props {
+	filterCategory: string;
+	title: string;
+	description: string;
+	body: string;
+	img: ImageMetadata;
+	readTime: number;
+	comments: number;
+	likes: number;
+	twitter: string;
+	facebook: string;
+	youtube: string;
+	tiktok: string;
+	instagram: string;
+	behance: string;
+	pinterest: string;
+}
+import { Image } from 'astro:assets';
+
+const { filterCategory, title, description, body, img, readTime, comments, likes, twitter, facebook, youtube, tiktok, instagram, behance, pinterest } = Astro.props;
+---
+
+<!-- card -->
+<div class={filterCategory} data-tags={filterCategory}>
+	<div class="uk-card uk-card-small uk-card-default">
+		<div class="uk-card-header">
+			<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+				<div class="uk-width-expand">
+					<span class="cat-txt">{title}</span>
+				</div>
+				<div class="uk-flex uk-flex-middle uk-width-auto uk-text-right uk-text-muted uk-text-middle">
+					<span class='raedtime-icon' data-uk-icon="icon:clock; ratio: 0.8"></span> <span>{readTime} min.</span>
+				</div>
+			</div>
+		</div>
+		<div class="uk-card-media">
+			<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+				<Image src={img} alt={title}/>
+				<div class="uk-iconnav uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+					<span data-uk-icon="icon:heart; ratio: 0.8"></span> {likes} <span data-uk-icon="icon:comment; ratio: 0.8"></span> {comments}
+				</div>
+			</div>
+
+		</div>
+		<div class="uk-card-body">
+			<h6 class="uk-margin-small-bottom uk-margin-remove-adjacent uk-text-bold">{description}</h6>
+			<p class="uk-text-small uk-text-muted">{body}</p>
+		</div>
+		<div class="uk-card-footer">
+			<div class="uk-grid uk-grid-small uk-grid-divider uk-flex uk-flex-middle" data-uk-grid>
+				<div class="uk-width-expand uk-text-small">
+					John Doe
+				</div>
+				<div class="uk-iconnav uk-width-auto uk-text-right">
+					{twitter && <a href={twitter} data-uk-tooltip="title: Twitter" class="uk-icon-link" data-uk-icon="icon:twitter; ratio: 0.8"></a>}
+					{facebook && <a href={facebook} data-uk-tooltip="title: Facebook" class="uk-icon-link" data-uk-icon="icon:facebook; ratio: 0.8"></a>}
+					{youtube && <a href={youtube} data-uk-tooltip="title: Youtube" class="uk-icon-link" data-uk-icon="icon:youtube; ratio: 0.8"></a>}
+					{tiktok && <a href={tiktok} data-uk-tooltip="title: TikTok" class="uk-icon-link" data-uk-icon="icon:tiktok; ratio: 0.8"></a>}
+					{instagram && <a href={instagram} data-uk-tooltip="title: Instagram" class="uk-icon-link" data-uk-icon="icon:instagram; ratio: 0.8"></a>}
+					{pinterest && <a href={pinterest} data-uk-tooltip="title: Pinterest" class="uk-icon-link" data-uk-icon="icon:pinterest; ratio: 0.8"></a>}
+					{behance && <a href={behance} data-uk-tooltip="title: Behance" class="uk-icon-link" data-uk-icon="icon:behance; ratio: 0.8"></a>}
+				</div>
+				<!-- <div class="uk-width-auto uk-text-right">
+					<a data-uk-tooltip="title: Drag this card" href="#" class="uk-icon-link drag-icon" data-uk-icon="icon:move; ratio: 1"></a>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /card -->
+
+<style>
+	.raedtime-icon {
+		margin-right: 2px;
+	}
+</style>
