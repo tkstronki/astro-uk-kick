@@ -21,13 +21,13 @@ import { Image } from 'astro:assets';
 <!-- FOOTER -->
 <footer class="uk-section uk-section-secondary uk-padding-remove-bottom">
 	<div class="uk-container">
-		<div class="uk-grid uk-grid-large" data-uk-grid>
+		<div class="uk-grid uk-grid-large" uk-grid>
 			<div class="uk-width-1-2@m">
 				<h5>{siteName}</h5>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud cillum dolore eu fugiat nulla contact to: <a href="#" title="">info@company.com</a></p>
 				<ul class="uk-iconnav">
 					{Object.entries(socialMediaLinks).map(([key, value]) => (
-						<li><a href={value} class="uk-icon-button" data-uk-icon={key}></a></li>
+						<li><a href={value} class="uk-icon-button" uk-icon={key}></a></li>
 					))}
 				</ul>
 			</div>
@@ -67,17 +67,19 @@ import { Image } from 'astro:assets';
 			<a href={authorLink}>Created by {authorName}</a>&nbsp;
 			<a href="https://github.com/zzseba78/Kick-Off">Inspired by KickOff</a>&nbsp;
 			|Built with
-			<a href="http://getuikit.com" title="Visit UIkit 3 site" target="_blank" data-uk-tooltip>
+			<a href="http://getuikit.com" title="Visit UIkit 3 site" target="_blank" uk-tooltip>
 				<Image src={logo} alt={siteName}/>
 			</a> | <a href={astroThemeURL}>Get Astro.js Theme</a>
 		</span>
 	</div>
 </footer>
 <!-- /FOOTER -->
+
+
 <!-- OFFCANVAS -->
-<div id="offcanvas-nav" data-uk-offcanvas="flip: true; overlay: false">
-	<div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
-		<button class="uk-offcanvas-close uk-close uk-icon" type="button" data-uk-close></button>
+<div id="offcanvas-nav" uk-offcanvas>
+	<div class="uk-offcanvas-bar">
+		<button class="uk-offcanvas-close" type="button" uk-close></button>
 		<ul class="uk-nav uk-nav-default uk-text-uppercase">
 			<!-- <li class="uk-active"><a href="#">Active</a></li> -->
 			{Object.entries(menuLinks).map(([key, value]) => (

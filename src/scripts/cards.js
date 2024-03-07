@@ -9,8 +9,9 @@ let debounce,searchTerm, value;
 
 // when write on field
 util.on(search, 'keyup', () => {
+
 	clearTimeout(debounce);
-	
+
 	debounce = setTimeout(() => {
 		// get input value and convert to lower case
 		value = search.value.toLowerCase();

@@ -22,10 +22,10 @@ interface Props {
 const { title, description, img, action } = Astro.props;
 
 // Basic settings from .env file
-const themeName = 'UK-Kick';
-const authorName = 'templatek.pl';
-const authorLink = 'https://templatek.pl/';
-const astroThemeURL = 'https://tkstronki.github.io/astro-uk-kick/';
+const siteName = 'UK-Kick';
+const authorName = 'tkstronki.pl';
+const authorLink = 'https://tkstronki.pl/';
+const astroThemeURL = 'https://github.com/tkstronki/astro-uk-kick';
 
 // menu links
 const menuLinks = {
@@ -42,7 +42,6 @@ const socialMediaLinks = {
 	'youtube': 'https://www.youtube.com/',
 	'tiktok': 'https://www.tiktok.com/',
 };
-const siteName = themeName;
 ---
 
 <!doctype html>
@@ -57,6 +56,10 @@ const siteName = themeName;
 		<title>{title}</title>
 		<!-- CSS FILES -->
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
+		<!-- JS FILES -->
+		<script is:inline defer src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+		<script is:inline defer src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+		<!-- GLOBAL CSS -->
 		<style is:global>
 			.lead {
 				font-size: 1.175em;
@@ -92,9 +95,5 @@ const siteName = themeName;
 			menuLinks={menuLinks}
 			socialMediaLinks={socialMediaLinks}
 		/>
-
-		<!-- JS FILES -->
-		<script is:inline src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
-		<script is:inline src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
 	</body>
 </html>
